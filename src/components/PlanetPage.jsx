@@ -1,6 +1,6 @@
-import Header from "./Header";
+import Header from "./Header/Header";
 
-import Logo from "./Logo";
+import Logo from "./Logo/Logo";
 import PlanetNav from "./PlanetNav/PlanetNav";
 
 function PlanetPage({ planets, planet }) {
