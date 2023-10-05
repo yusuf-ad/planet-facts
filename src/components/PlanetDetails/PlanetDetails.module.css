@@ -1,0 +1,59 @@
+.sectionDetails {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: 4.8rem;
+  margin: 6.4rem auto;
+}
+
+.planetImg {
+  justify-self: center;
+  align-self: center;
+}
+
+.planetDetails h1 {
+  font-size: 6.4rem;
+  margin-bottom: 1.8rem;
+}
+
+.source {
+  color: #fff8;
+  margin: 2.8rem 0 4.8rem;
+}
+
+.source a:link,
+.source a:visited {
+  margin-left: 0.8rem;
+  color: hsla(0, 0%, 100%, 0.6);
+  font-weight: 500;
+}
+
+.planetSlides {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+.planetSlide {
+  cursor: pointer;
+  width: 100%;
+  padding: 0.6rem 1.6rem;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background-color 0.2s ease;
+}
+
+.planetSlide:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.planetSlide p {
+  margin-top: 4px;
+}
+
+.planetSlide p span {
+  margin-right: 0.8rem;
+  color: #ffffff80;
+}

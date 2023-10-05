@@ -1,6 +1,8 @@
 import Header from "./Header/Header";
 
 import Logo from "./Logo/Logo";
+import Main from "./Main/Main";
+import PlanetDetails from "./PlanetDetails/PlanetDetails";
 import PlanetNav from "./PlanetNav/PlanetNav";
 
 function PlanetPage({ planets, planet }) {
@@ -12,7 +14,9 @@ function PlanetPage({ planets, planet }) {
         <Logo />
         <PlanetNav planets={planets} planetName={name} />
       </Header>
-      <h1>{planet.name}</h1>
+      <Main>
+        <PlanetDetails key={planet.name} planet={planet} />
+      </Main>
     </>
   );
 }

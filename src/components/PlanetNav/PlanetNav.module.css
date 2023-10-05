@@ -14,9 +14,9 @@
 
 .nav ul a:link,
 .nav ul a:visited {
-  letter-spacing: 0.2px;
+  letter-spacing: 1.2px;
   font-size: 1.4rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: #ffffffa6;
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 500;
@@ -44,4 +44,8 @@
 
 .nav a:global(.active) {
   color: #fff !important;
+}
+
+.nav a:global(.active) .beforeElement {
+  display: block;
 }

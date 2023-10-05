@@ -31,7 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<h1>homepage</h1>} />
+        <Route index element={<h1>HOMEPAGE</h1>} />
         {planets.map((planet, index) => (
           <Route
             key={index}
