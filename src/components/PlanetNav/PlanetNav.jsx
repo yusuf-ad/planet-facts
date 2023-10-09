@@ -9,7 +9,7 @@ function PlanetNav({ planets }) {
       <ul>
         {planetNames.map((planet, index) => (
           <li key={index}>
-            <NavLink to={`/${planet}`}>
+            <NavLink to={`/${planet.toLowerCase()}`}>
               {planet}
               <span
                 className={styles.beforeElement}
