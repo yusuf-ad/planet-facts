@@ -32,12 +32,18 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<h1>HOMEPAGE</h1>} />
+        <Route index element={<h1>homepage</h1>} />
         {planets.map((planet, index) => (
           <Route
             key={index}
             path={`/${planet.name}`}
-            element={<PlanetPage planets={planets} planet={planet} />}
+            element={
+              <PlanetPage
+                planets={planets}
+                planet={planet}
+                isLoading={isLoading}
+              />
+            }
           />
         ))}
         <Route path="*" element={<PageNotFound />} />
