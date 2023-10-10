@@ -1,1 +1,1 @@
-To start write npm start to terminal
+To start write "npm start" to terminal
