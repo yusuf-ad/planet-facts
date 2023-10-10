@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import styles from "./PlanetSlide.module.css";
+import { useNavigate, useParams } from "react-router-dom";
 
 function PlanetSlide({
   planet,
@@ -9,13 +10,37 @@ function PlanetSlide({
   activeSlide,
   setActiveSlide,
 }) {
+  const navigate = useNavigate();
+
+  const { content: contentParam } = useParams();
+
+  useEffect(() => {
+    switch (contentParam) {
+      case "overview":
+        setActiveSlide(1);
+        break;
+      case "structure":
+        setActiveSlide(2);
+        break;
+      case "geology":
+        setActiveSlide(3);
+        break;
+      default:
+        return;
+    }
+  }, [contentParam, setActiveSlide]);
+
   return (
     <div
       style={{ transform: `translateX(${(slideNo - activeSlide) * 100}%)` }}
       className={styles.planetSlide}
     >
       <div className={styles.planetImg}>
-        <img src={planet.images[contentImage]} alt="planet " />
+        <img
+          onMouseEnter={(e) => console.log(e.target)}
+          src={planet.images[contentImage]}
+          alt="planet "
+        />
       </div>
       <div className={styles.planetDetails}>
         <h1>{planet.name}</h1>
@@ -30,12 +55,12 @@ function PlanetSlide({
 
             if (!slide) return;
 
-            console.log(slide.classList[0]);
             setActiveSlide(slide.classList[0]);
           }}
           className={styles.planetInfo}
         >
           <div
+            onClick={() => navigate(`/${planet.name.toLowerCase()}/overview`)}
             className={`1 ${styles.planetInfoBox}`}
             style={{
               backgroundColor:
@@ -47,6 +72,7 @@ function PlanetSlide({
             </p>
           </div>
           <div
+            onClick={() => navigate(`/${planet.name.toLowerCase()}/structure`)}
             className={`2 ${styles.planetInfoBox}`}
             style={{
               backgroundColor:
@@ -58,6 +84,7 @@ function PlanetSlide({
             </p>
           </div>
           <div
+            onClick={() => navigate(`/${planet.name.toLowerCase()}/geology`)}
             className={`3 ${styles.planetInfoBox}`}
             style={{
               backgroundColor:

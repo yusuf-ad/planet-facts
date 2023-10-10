@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 import PlanetPage from "./components/PlanetPage";
 import PageNotFound from "./PageNotFound/PageNotFound";
@@ -32,13 +32,32 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<h1>HOMEPAGE</h1>} />
+        <Route index element={<Navigate to="/mercury" />} />
         {planets.map((planet, index) => (
-          <Route
-            key={index}
-            path={`/${planet.name}`}
-            element={<PlanetPage planets={planets} planet={planet} />}
-          />
+          <>
+            <Route
+              key={index}
+              path={`/${planet.name}`}
+              element={
+                <PlanetPage
+                  planets={planets}
+                  planet={planet}
+                  isLoading={isLoading}
+                />
+              }
+            />
+            <Route
+              key={index}
+              path={`/${planet.name}/:content`}
+              element={
+                <PlanetPage
+                  planets={planets}
+                  planet={planet}
+                  isLoading={isLoading}
+                />
+              }
+            />
+          </>
         ))}
         <Route path="*" element={<PageNotFound />} />
       </Routes>
